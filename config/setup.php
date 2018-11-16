@@ -3,19 +3,21 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$socket = '/Applications/MAMP/tmp/mysql/mysql.sock';
+// $socket = '/Applications/MAMP/tmp/mysql/mysql.sock';
+$severname = 'localhost';
 $username = 'root';
-$password = 'root';
+$password = 'coding01';
+$dbname = 'camagru';
 
 try{
-    $conn = new PDO("mysql:unix_socket=$socket;", $username, $password);
+    $conn = new PDO("mysql:host=$severname;", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     echo "Error ". $e->getMessage();
 }
 
 //create database if not exist
-$sql = "CREATE DATABASE IF NOT EXISTS diputu";
+$sql = "CREATE DATABASE IF NOT EXISTS camagru";
 try {
     $conn->query($sql);
     echo "Database created successfully";
@@ -24,7 +26,7 @@ try {
 }
 
 //use database
-$sql = "USE diputu";
+$sql = "USE camagru";
 try {
     $conn->query($sql);
     echo "Now Using Database created";
