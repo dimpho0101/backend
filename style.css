@@ -1,0 +1,103 @@
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font: 15px/1.5 "Courier new", courier, monospace;
+    /* overflow: hidden; */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: white;
+    color: lightgray;
+    padding-top: 30px;
+    min-height: 70px;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #logo {
+    float: left;
+}
+
+header #logo h1 {
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight {
+    color: gray;
+    font-weight: bold;
+}
+
+#boxes {
+    margin-top: -10px;
+}
+
+#boxes .box {
+    float: left;
+    text-align: center;
+    width: 20%;
+    padding: 10px;
+}
+
+#boxes .box img {
+    width: 350px;
+    height: 60%;
+    ;
+}
+
+footer {
+    background-color: black;
+}
+
+footer h4 {
+    color: aliceblue;
+    text-align: center;
+    margin-top: 20%;
+    padding-top: 70px;
+    min-height: 70px;
+}
+
+footer p {
+    color: aliceblue;
+    text-align: center;
+}
+
+#square {
+    margin-top: 50px;
+    height: 550px;
+    width: 250px;
+    background-color: rgb(34, 31, 31);
+}
+
+aside {
+    background: teal;
+    height: 300px;
+    width: 30%;
+    display: table-cell;
+}

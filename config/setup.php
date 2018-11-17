@@ -51,3 +51,33 @@ try {
 } catch (PDOException $e) {
     echo "Error ". $e->getMessage();
 }
+
+//create tables for images
+$likes = "CREATE TABLE IF NOT EXISTS likes ("
+. "id int NOT NULL AUTO_INCREMENT,"
+// . "imgId varchar(100) NOT NULL,"
+. "userId varchar(100) NOT NULL,"
+// . "comment text NOT NULL,"
+. "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+. "PRIMARY KEY (id));";
+try {
+    $conn->exec($likes);
+    echo "likes table created successfully <br>";
+} catch (PDOException $e) {
+    echo "error: " . $likes . "<br>" . $e->getMessage();
+}
+
+//create tables for comments
+$comments = "CREATE TABLE IF NOT EXISTS comments ("
+. "id int NOT NULL AUTO_INCREMENT,"
+// . "imgId varchar(100) NOT NULL,"
+. "userId varchar(100) NOT NULL,"
+. "comment text NOT NULL,"
+. "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+. "PRIMARY KEY (id));";
+try {
+    $conn->exec($comments);
+    echo "Comments table created successfully <br>";
+} catch (PDOException $e) {
+    echo "error: " . $comments . "<br>" . $e->getMessage();
+}
