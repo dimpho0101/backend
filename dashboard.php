@@ -36,9 +36,7 @@
         padding: 8px 16px;
         text-decoration: none;
     }
-    #id{
-
-    }
+    
 </style>
 
 <body>
@@ -61,19 +59,16 @@
         <h1><i>For Creators, By creators</i></h1>
     </div>
     <div class="image">
-   <div id="like">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
-        <a href><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" width="50px" height=" 50px"></a>
-       </div> 
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
-    </div>
-    <div class="image">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
-    </div>
-    <div class="image">
+        <br><a href="#"><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" data-url="liked" width="50px" height=" 50px" onclick="myFunction(this)"></a>
+        <div id="like"></div>
+        </div> 
+
+        <div class="home"></div>
+    
+        <!-- <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
+        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px"> -->
+    <!-- <div class="image">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
@@ -83,6 +78,11 @@
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
     </div>
+    <div class="image">
+        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
+        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
+        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
+    </div> -->
     <!-- <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="feed2.php">1</a>
@@ -93,6 +93,22 @@
         <a href="#">6</a>
         <a href="#">&raquo;</a>
     </div> -->
-</body>
 
+    <script>
+    var xhttp = new XMLHttpRequest();
+    function myFunction(d){
+        xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       var likeBox = document.getElementById("like").innerHTML = xhttp.responseText;
+    }
+};
+        
+        xhttp.open("POST", "likes.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("imgid="+d.getAttribute("data-url"));
+
+    }
+    </script>
+</body>
 </html>
