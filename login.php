@@ -1,28 +1,32 @@
 <?php 
 
 include './includes/header_inc.php';
-
-// session_start();
+session_destroy();
+ session_start();
 try{
 $con = new PDO ("mysql:host=localhost;dbname=camagru",$username,$password);
 if(isset($_POST['signin'])){
         // $username = $_POST['username'];
         $email = $_POST['email'];
-        $pass = $_POST['password'];
+        //$pass = $_POST['password'];
+        $pass = hash('whirlpool', trim($_POST['password']));
 
-        $select = $con->prepare("SELECT * FROM users WHERE email='$email' and password='$pass'");
+        $select = $con->prepare("SELECT * FROM users WHERE email='$email' AND password='$pass'");
         $select->setFetchMode(PDO::FETCH_ASSOC);
         $select->execute();
         $data=$select->fetch();
-        if($data['email']!=$email and $data['password']!=$pass)
+        if($data['email']!=$email || $data['password']!=$pass)
         {
-            echo "invalid email or password";
+            echo "<script>alert('invalid email or password');</script>";
+            header('location: ./login.php');
+            exit();
+
         }
         elseif($data['email']==$email and $data['password']==$pass)
         {
         $_SESSION['email']=$data['email'];
             $_SESSION['password']=$data['password'];
-            header("./dashboard.php"); 
+            header("location: ./dashboard.php"); 
         }
 }
 }catch(PDOException $e)

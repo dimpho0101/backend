@@ -53,24 +53,25 @@ try {
 }
 
 //create tables for images
-$likes = "CREATE TABLE IF NOT EXISTS likes ("
+$images = "CREATE TABLE IF NOT EXISTS images ("
 . "id int NOT NULL AUTO_INCREMENT,"
-// . "imgId varchar(100) NOT NULL,"
+. "imgName varchar(100) NOT NULL,"
+. "imgId varchar(100) NOT NULL UNIQUE,"
 . "userId varchar(100) NOT NULL,"
-// . "comment text NOT NULL,"
+. "likes int NOT NULL DEFAULT 0,"
 . "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
 . "PRIMARY KEY (id));";
 try {
-    $conn->exec($likes);
-    echo "likes table created successfully <br>";
+    $conn->exec($images);
+    echo "Images table created successfully <br>";
 } catch (PDOException $e) {
-    echo "error: " . $likes . "<br>" . $e->getMessage();
+    echo "error: " . $images . "<br>" . $e->getMessage();
 }
 
-//create tables for comments
+//create tables for images
 $comments = "CREATE TABLE IF NOT EXISTS comments ("
 . "id int NOT NULL AUTO_INCREMENT,"
-// . "imgId varchar(100) NOT NULL,"
+. "imgId varchar(100) NOT NULL,"
 . "userId varchar(100) NOT NULL,"
 . "comment text NOT NULL,"
 . "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
@@ -81,3 +82,18 @@ try {
 } catch (PDOException $e) {
     echo "error: " . $comments . "<br>" . $e->getMessage();
 }
+
+//create tables for images
+$pwdreset = "CREATE TABLE IF NOT EXISTS pwdreset ("
+. "id int NOT NULL AUTO_INCREMENT,"
+. "email varchar(100) NOT NULL,"
+. "token varchar(100) NOT NULL,"
+. "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+. "PRIMARY KEY (id));";
+try {
+    $conn->exec($pwdreset);
+    echo "Password reset table created successfully <br>";
+} catch (PDOException $e) {
+    echo "error: " . $pwdreset . "<br>" . $e->getMessage();
+}
+$conn = null;
