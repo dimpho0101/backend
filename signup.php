@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
                 $subject = "Comfirmation process";
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-                $headers .= 'From: <jwere@student.wethinkcode.co.za>' . "\r\n";
+                $headers .= 'From: <diputu@42.FR>' . "\r\n";
                 $message = '
                 <html>
                     <head>
@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
                 </html>
                 ';
                 mail($email, $subject, $message, $headers);
-                header('location: login.php?msg="Registration Successful. Check Your Email To Verify Your Account"');
+                header('location: open.php?msg="Registration Successful. Check Your Email To Verify Your Account"');
+                // echo "<script>alert('Please check your email to verify your account');</script>";
 
-
-                echo 'Please check email to verify your account';
+                echo 'Please check your email to verify your account';
             //} else{
               //  echo "There was an error creating account";
             //}
