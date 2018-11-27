@@ -88,6 +88,7 @@ $pwdreset = "CREATE TABLE IF NOT EXISTS pwdreset ("
 . "id int NOT NULL AUTO_INCREMENT,"
 . "email varchar(100) NOT NULL,"
 . "token varchar(100) NOT NULL,"
+. "verify tinyint(1) DEFAULT 0,"
 . "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
 . "PRIMARY KEY (id));";
 try {

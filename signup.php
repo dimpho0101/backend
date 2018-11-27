@@ -54,3 +54,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
     <input type="password" name="password" placeholder="Enter Password" required>
     <input type="submit" value="Signup">
 </form>
+
+

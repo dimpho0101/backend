@@ -45,5 +45,7 @@ echo "error".$e->getMessage();
 <input type="email" name="email" placeholder="Insert email" required><br><br>
 <input type="password" name="password" placeholder="Insert Password" required><br><br>
 <input type="submit" name="signin" value="SIGN IN">
+</form>
 </div>
 </div>
+<a href="forgotpassword.php">Forgot password</a>
