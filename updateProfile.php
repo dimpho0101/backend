@@ -1,11 +1,16 @@
 <?php
 include './includes/header_inc.php';
+
+if ($_GET['token'] && $_GET['email']){
+    $token = $_GET['token'];
+    $email = $_GET['email'];
+    $n = 1;
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "UPDATE MyGuests SET username=?, email=?, password=? WHERE id=?";
+    $sql = "UPDATE users SET username=?, email=?, password=? WHERE id=?";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);
@@ -30,4 +35,3 @@ $conn = null;
 <input type="email" name="email" placeholder="Insert email"><br><br>
 <input type="password" name="password" placeholder="Insert Password"><br><br>
 <input type="submit" name="submit" value="change">
-</form>
