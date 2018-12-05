@@ -1,6 +1,9 @@
+<?php 
+   
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,9 +65,16 @@
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
         <br><a href="#"><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" data-url="liked" width="50px" height=" 50px" onclick="myFunction(this)"></a>
         <div id="like"></div>
+        <!-- <form action="" method="post"> -->
+        <input type="text" name="name" placeholder="username" id="username"><br>
+        <textarea class="comment" name="comment" id="ucomments"></textarea>
+        <button onClick="comment()">enter</button>
+        <span id="result"></span>
+       <!-- </form> -->
+        </div>
         </div> 
 
-        <div class="home"></div>
+        <!-- <div class="home"></div> -->
     
         <!-- <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px"> -->
@@ -108,6 +118,21 @@
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("imgid="+d.getAttribute("data-url"));
 
+    }
+    
+    //comment
+    function comment() {
+        var x = document.getElementById("username").value;
+        var y = document.getElementById("ucomments").value;
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                document.getElementById("result").innerHTML = this.response;
+            }
+        };
+        xhttp.open("POST", "comment.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("submit=true&comment="+y+"&user="+x);
     }
     </script>
 </body>

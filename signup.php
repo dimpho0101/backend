@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
             $stmt = $conn->prepare("INSERT INTO `users`(`username`, `email`, `password`, `verify_token`) VALUES(?,?,?,?)");
             $stmt->execute(array($uname, $email, $password,$token));
             //if ($stmt->rowCount()){
-                $localhost= "localhost:8080/backend";
+                $localhost= "localhost:8081/backend";
                 $subject = "Comfirmation process";
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
     <input type="text" name="uname" placeholder="Enter Username" required> 
     <input type="email" name="email" placeholder="Enter Email" required>
     <input type="password" name="password" placeholder="Enter Password" required>
-    <input type="submit" value="Signup">
+    <input type="submit" name="submit" value="Signup">
 </form>
 
 

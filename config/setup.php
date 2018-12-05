@@ -97,4 +97,18 @@ try {
 } catch (PDOException $e) {
     echo "error: " . $pwdreset . "<br>" . $e->getMessage();
 }
+
+$likes = "CREATE TABLE IF NOT EXISTS likes ("
+. "id int NOT NULL AUTO_INCREMENT,"
+. "imgid varchar(100) NOT NULL,"
+. "clicks tinyint(1) DEFAULT 0,"
+. "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+. "PRIMARY KEY (id));";
+try {
+    $conn->exec($likes);
+    echo "likes table created successfully <br>";
+} catch (PDOException $e) {
+    echo "error: " . $likes . "<br>" . $e->getMessage();
+}
+
 $conn = null;
