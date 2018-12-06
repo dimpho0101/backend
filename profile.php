@@ -1,15 +1,22 @@
 <?php
    include './includes/header_inc.php';
    if(isset($_POST['submit'])){
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+       
+    // $id = 1;
+    // $username = $_POST['username'];
+    // $email = $_POST['email'];
+    // $password = $_POST['password'];
 
-    $sql = $conn->prepare("SELECT COUNT(*) FROM users WHERE `email` = ? OR `username` = ? OR `password` = ?");
-        $sql->execute(array($email, $username, $password));
-        if ($sql->fetchColumn()){
-            echo 'Insert correct details';
-        }
+    // $query = "UPDATE `users` SET `username`=:`username` WHERE id = :id";
+    // $pdoResult = $pdoConnect->prepare($query);
+    // $pdoExec = $pdoResult->execute(array(":username"=>$username,":email"=>$email,":password"=>$password));
+    // if($pdoExec)
+    // {
+    //     echo 'Data Updated';
+    // }else{
+    //     echo 'ERROR Data Not Updated';
+    // }
+}        
 //     $sql = "UPDATE users SET  username=?, email=?, `password`=?";
 //     $sql->execute(array($username,$email,$password));
 //     echo $sql->rowCount() . " details successfully updated";
@@ -120,7 +127,7 @@ input:checked + .slider:before {
             <input type="password" name="password" placeholder="enter old password"><br>
             <input type="password" name="password" placeholder="Change password"><br><br>
             <input type="checkbox" value="checkbox" name="password"> <b>Stop receiving mail notification</b> <br>
-            <button>Submit</button><br>
+            <input type="submit" name="submit" placeholder="Update"><br>
             </form>
             <!-- Rounded switch -->
             <label class="switch" id="switch">

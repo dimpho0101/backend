@@ -53,7 +53,7 @@
                     <li><a href="#Home">Camagru</a></li>
                     <li><a href="feed.html" target="_blank">Feed</a></li>
                     <li><a href="signin.php" target="_blank">Sign in</a></li>
-                    <li><a href="about.html" target="_blank">About</a></li>
+                    <li><a href="profile.php" target="_blank">Profile</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,7 +67,7 @@
         <div id="like"></div>
         <!-- <form action="" method="post"> -->
         <input type="text" name="name" placeholder="username" id="username"><br>
-        <textarea class="comment" name="comment" id="ucomments"></textarea>
+        <textarea class="comment" name="comment" id="ucomments" min="10" max="50"></textarea>
         <button onClick="comment()">enter</button>
         <span id="result"></span>
        <!-- </form> -->
