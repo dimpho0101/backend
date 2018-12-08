@@ -1,7 +1,11 @@
 <?php
    include './includes/header_inc.php';
-   if(isset($_POST['submit'])){
-       
+//    if(isset($_POST['submit'])){
+
+    //    $sql = $conn->prepare("SELECT COUNT(*) FROM users WHERE  `username` = ?");
+    //     $sql->execute(array($username));
+    //     if ($sql->fetchColumn()){
+    //         echo $username;
     // $id = 1;
     // $username = $_POST['username'];
     // $email = $_POST['email'];
@@ -16,11 +20,27 @@
     // }else{
     //     echo 'ERROR Data Not Updated';
     // }
-}        
+// }        
 //     $sql = "UPDATE users SET  username=?, email=?, `password`=?";
 //     $sql->execute(array($username,$email,$password));
 //     echo $sql->rowCount() . " details successfully updated";
 //    }
+
+    if(isset($_POST['password'])){
+        $password = $_POST['password'];
+
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$_POST['email']]);
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($_POST['password'], $user['password']))
+        {
+            echo "valid!";
+        } else {
+            echo "invalid";
+        }
+
+    }
 
 ?>
 <!DOCTYPE html>
@@ -112,7 +132,7 @@ input:checked + .slider:before {
             <nav>
                 <ul>
                     <li><a href="#Home"><b>Camagru</b></a></li>
-                    <li><a href="feed.html" target="_blank"><b>Dashboard</b></a></li>
+                    <li><a href="dashboard.php" target="_blank"><b>Dashboard</b></a></li>
                     <li><a href="signin.html" target="_blank"><b>Feed</b></a></li>
                     <li><a href="home.php" target="_blank"><b>Sign out</b></a></li>
                 </ul>
@@ -122,9 +142,8 @@ input:checked + .slider:before {
     <h1> Your profile</h1>
         <div class="row">
             <form action="" method="POST">
-            <input type="text" name="Username" placeholder="Change username"><br>
-            <input type="text" name="email" placeholder="Change email address"><br>
-            <input type="password" name="password" placeholder="enter old password"><br>
+            <input type="text" name="username" value="<?= $_SESSION['username']; ?>" placeholder="Change username"><br>
+            <input type="text" name="email" value="<?= $_SESSION['email']; ?>" placeholder="Change email address"><br>
             <input type="password" name="password" placeholder="Change password"><br><br>
             <input type="checkbox" value="checkbox" name="password"> <b>Stop receiving mail notification</b> <br>
             <input type="submit" name="submit" placeholder="Update"><br>
