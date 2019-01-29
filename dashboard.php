@@ -1,7 +1,4 @@
-<?php 
-   
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +63,6 @@
         <br><a href="#"><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" data-url="liked" width="50px" height=" 50px" onclick="myFunction(this)"></a>
         <div id="like"></div>
         <!-- <form action="" method="post"> -->
-        <input type="text" name="name" placeholder="username" id="username"><br>
         <textarea class="comment" name="comment" id="ucomments" min="10" max="50"></textarea>
         <button onClick="comment()">enter</button>
         <span id="result"></span>

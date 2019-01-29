@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
 <form action="" method="post">
     <input type="text" name="uname" placeholder="Enter Username" required> 
     <input type="email" name="email" placeholder="Enter Email" required>
-    <input type="password" name="password" placeholder="Enter Password" required>
+    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Password" required>
     <input type="submit" name="submit" value="Signup">
 </form>
 

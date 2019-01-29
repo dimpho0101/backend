@@ -74,7 +74,7 @@ $comments = "CREATE TABLE IF NOT EXISTS comments ("
 . "imgId varchar(100) NOT NULL,"
 . "userId varchar(100) NOT NULL,"
 . "comment text NOT NULL,"
-. "dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+. "dateCreated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,"
 . "PRIMARY KEY (id));";
 try {
     $conn->exec($comments);

@@ -1,32 +1,25 @@
 <?php
 include './includes/header_inc.php';
 
-if ($_GET['token'] && $_GET['email']){
-    $token = $_GET['token'];
-    $email = $_GET['email'];
-    $n = 1;
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+function updateuser($user)
+    try{
+    $check = $con->prepare('SELECT * FROM users WHERE username = :username AND email != :email');
+    $check->bindParam(':username', $user[0]);
+    $check->bindParam(':email', $user[1]);
+    $check->execute();
+   } catch (Exception $e){
+       echo 'Error: ' . $e->getMessage();
+   }
 
-    $sql = "UPDATE users SET username=?, email=?, password=? WHERE id=?";
-
-    // Prepare statement
-    $stmt = $conn->prepare($sql);
-
-    // execute the query
-    $stmt->execute();
-
-    // echo a message to say the UPDATE succeeded
-    echo $stmt->rowCount() . " records UPDATED successfully";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-
-$conn = null;
+   $num = $check->rowCount();
+   if ($num > 0){
+       header('Location: ../dashboard.php?profileexits')
+   }else {
+       $password = password_hash(trim($user[3]), PASSWORD_BCRYPT, array('cost' => 5));
+       try {
+            update
+       }
+   }
 
 ?>
 <h3>Update Profile Details</h3>

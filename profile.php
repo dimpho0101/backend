@@ -25,22 +25,15 @@
 //     $sql->execute(array($username,$email,$password));
 //     echo $sql->rowCount() . " details successfully updated";
 //    }
+if(isset($_POST['update'])){
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-    if(isset($_POST['password'])){
-        $password = $_POST['password'];
+  $query = "UPDATE `users` SET  `username`=:username, `email`=:email, `password`=:password WHERE `id` =:id";
 
-        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$_POST['email']]);
-        $user = $stmt->fetch();
 
-        if ($user && password_verify($_POST['password'], $user['password']))
-        {
-            echo "valid!";
-        } else {
-            echo "invalid";
-        }
-
-    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -146,7 +139,7 @@ input:checked + .slider:before {
             <input type="text" name="email" value="<?= $_SESSION['email']; ?>" placeholder="Change email address"><br>
             <input type="password" name="password" placeholder="Change password"><br><br>
             <input type="checkbox" value="checkbox" name="password"> <b>Stop receiving mail notification</b> <br>
-            <input type="submit" name="submit" placeholder="Update"><br>
+            <input type="submit" name="update" placeholder="Update"><br>
             </form>
             <!-- Rounded switch -->
             <label class="switch" id="switch">
