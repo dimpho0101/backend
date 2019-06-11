@@ -9,7 +9,7 @@ session_destroy();
 session_start();
 try{
     $con = new PDO ("mysql:host=localhost;dbname=camagru",$username,$password);
-    if(isset($_POST['Submit'])){
+    if(isset($_POST['submit'])){
             $email = $_POST['email'];  
 
             $select = $con->prepare("SELECT * FROM users WHERE email='$email' LIMIT 1");
@@ -20,12 +20,15 @@ try{
                 if ($data['verify'])
                 {
                     $_SESSION['email']=$data['email'];
-                    header("location: ./dashboard.php"); 
+                    header("location: ./newpassword.php"); 
                      
                 }else {
-                    echo 'please enter a valid email';
+                    echo 'verify your account first!';
                     exit();
                 }
+            }else {
+                echo 'please enter a valid email';
+                exit();
             }
         }
     }catch(PDOException $e)
@@ -34,10 +37,11 @@ try{
     }
         
 ?> 
+
+
 <h3>Reset your password </h3>
-<form method="post">
+<form method="post" action="">
 <input type="email" name="email" placeholder="Insert email" required><br><br>
-<!-- <input type="password" name="password" placeholder="Insert New Password" required><br><br> -->
 <input type="submit" name="submit" value="Submit" <?php echo "hello"; ?>>
 </form>
 

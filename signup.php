@@ -1,5 +1,7 @@
 <?php 
 include './includes/header_inc.php';
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a post
     if (isset($_POST['uname'], $_POST['email'], $_POST['password'])) { //check if all variables are set
         $uname = htmlentities(trim($_POST['uname']), ENT_QUOTES, 'UTF-8');
@@ -46,13 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
     }
 }
 ?>
-<h3>This is Signup</h3>
 
-<form action="" method="post">
-    <input type="text" name="uname" placeholder="Enter Username" required> 
-    <input type="email" name="email" placeholder="Enter Email" required>
-    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Password" required>
+
+<style>
+    .main{
+        text-align: center;
+    }
+</style>
+<h3 style="text-align:center;">Signup</h3>
+<form action="" method="post" class="main">
+    <input type="text" name="uname" placeholder="Enter Username" required> <br>
+    <input type="email" name="email" placeholder="Enter Email" required> <br>
+    <input type="password" name="password" placeholder="Enter Password" required> <br>
     <input type="submit" name="submit" value="Signup">
+    <a href="login.php"> <p>Already have an account? Login here</p></a>
 </form>
 
 

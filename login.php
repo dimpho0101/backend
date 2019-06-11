@@ -39,13 +39,11 @@ if(isset($_POST['signin'])){
 echo "error".$e->getMessage();
 }
 ?>
-<h3>This is Login</h3>
-<form method="post">
+<h3 style="text-align:center;">This is Login</h3>
+<form method="post" style="text-align:center;">
 <input type="text" name="username" placeholder="Insert Username" required><br><br>
 <input type="email" name="email" placeholder="Insert email" required><br><br>
 <input type="password" name="password" placeholder="Insert Password" required><br><br>
-<input type="submit" name="signin" value="SIGN IN">
+<input type="submit" name="signin" value="SIGN IN"> <br>
+<a href="forgotpassword.php" >Forgot password</a>
 </form>
-</div>
-</div>
-<a href="forgotpassword.php">Forgot password</a>
