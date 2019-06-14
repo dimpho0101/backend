@@ -1,4 +1,5 @@
 <?php
+session_start();
    include './includes/header_inc.php';
 //    if(isset($_POST['submit'])){
 
@@ -34,6 +35,8 @@ if(isset($_POST['update'])){
 
 
 }
+
+// echo $_SESSION["username"];
 
 ?>
 <!DOCTYPE html>
@@ -146,6 +149,10 @@ input:checked + .slider:before {
             <input type="checkbox" onChange="email(this)">
             <span class="slider round"></span>
             </label>
+        </div>
+        <div>
+        <span>Your images</span>
+        
         </div>
         <script>
         function email(d) {

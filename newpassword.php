@@ -1,7 +1,7 @@
 <?php
     include './includes/header_inc.php';
-    session_destroy();
-    session_start();
+    // session_destroy();
+    // session_start();
     try{
         $con = new PDO ("mysql:host=localhost;dbname=camagru",$username, $password);
         if(isset($_POST['submit'])){

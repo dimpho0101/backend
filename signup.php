@@ -8,7 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a p
         $email = htmlentities(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
         $password = hash('whirlpool', trim($_POST['password']));
         $token = md5(md5(time().$email.rand(0,9999)));
-        
+        $username = 'root';
+        $pass = 'coding01';
+        $conn = new PDO ("mysql:host=localhost;dbname=camagru",$username,$pass);
+
         //check if user exists
         $sql = $conn->prepare("SELECT COUNT(*) FROM users WHERE `email` = ? OR `username` = ?");
         $sql->execute(array($email, $uname));

@@ -6,6 +6,11 @@ if ($_GET['token'] && $_GET['email']){
     $email = $_GET['email'];
     $n = 1;
 
+    $username = 'root';
+    $password = 'coding01';
+
+    $conn = new PDO ("mysql:host=localhost;dbname=camagru",$username,$password);
+
     try{
         $sql = $conn->prepare("UPDATE users SET verify =:verify WHERE email =:email AND verify_token =:tok");
         $sql->bindParam(':verify', $n, PDO::PARAM_STR);

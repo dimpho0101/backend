@@ -1,7 +1,5 @@
 <?php
 include './includes/header_inc.php';
-session_destroy();
-session_start();
 
 function setComments() {
     if(isset($_POST['commentSubmit'])){

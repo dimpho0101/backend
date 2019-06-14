@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+.navbar {
+    font-family: 'Courier New', Courier, monospace;
+    background: white;
+    padding: 15px;
+    height: 40px;
+    color: black;
+}
+
+.navbar {
+    margin: 0;
+    text-align: center;
+}
+
+.top-container {
+    width: 500px;
+    margin: 30px auto;
+    margin-top: 20%;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.btn-dark {
+    background: #fff;
+    color: #e2dedb;
+    border: 4px solid;
+    border-radius: 4px;
+}
+
+.btn-dark:hover {
+    background-color: #b3aca7;
+}
+
+.btn-light {
+    background: #fff;
+    color: #e2dedb;
+    border: 4px solid;
+    border-radius: 4px;
+}
+
+.btn-light:hover {
+    background-color: #b3aca7;
+}
+
+.select {
+    height: 40px;
+    background: #fff;
+    color: #e2dedb;
+    padding: 3px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bottom-container {
+    max-width: 960px;
+    margin: auto;
+    padding: 10px;
+}
+
+#photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+#photos img {
+    width: 100%;
+    border: 3px #fff solid;
+}
+
+#canvas {
+    display: none;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    font-family: 'Courier New', Courier, monospace;
+    background: white;
+    color: lightgray;
+    padding-top: 30px;
+    min-height: 70px;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #logo {
+    float: left;
+}
+
+header #logo h1 {
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight {
+    color: gray;
+    font-weight: bold;
+}
+
+footer .next {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: lightgray;
+}
+
+#sticker {
+    position: absolute;
+    bottom: 150px;
+    width: 300px;
+    height: 200px;
+    right: 200px;
+    margin-bottom: 250px;
+}

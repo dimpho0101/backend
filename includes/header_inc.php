@@ -1,10 +1,10 @@
 <?php
+    include '../config/database.php';
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    session_start();
-    include './config/database.php';
-    // include 'style.css';
+    // session_start();
+    
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,10 +41,22 @@ li a:hover:not(.active) {
 </head>
 <body>
 <ul>
+  <?php
+
+if(isset($_SESSION["username"])){
+  ?>
   <li><a class="active" href="#home">Home</a></li>
-  <li><a href="feed.php">Feed</a></li>
-  <li><a href="signup.php">Register</a></li>
-  <li><a href="login.php">Login</a></li>
+  <li><a href="./index.php">Dashboard</a></li>
+  <?php
+}else{
+  ?>
+  
+  <li><a href="./signup.php">Register</a></li>
+  <li><a href="./login.php">Login</a></li>
+  <?php
+}
+?>
+
 </ul>
 </body>
 </html>

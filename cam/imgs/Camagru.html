@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Camagru</title>
+    <link rel="stylesheet" href="Camagru_files/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="logo">
+                <h1><span class="highlight">C</span>a<span class="highlight">m</span>a<span class="highlight">g</span>r<span class="highlight">u</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#Home">Camagru</a></li>
+                    <li><a href="#profile" target="_blank">Your Profile</a></li>
+                    <li><a href="file:///goinfre/diputu/MAMP/apache2/htdocs/Camagru/front_end/signin.html" target="_blank">Sign in</a></li>
+                    <li><a href="file:///goinfre/diputu/MAMP/apache2/htdocs/Camagru/front_end/about.html" target="_blank">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="navbar">
+        <img src="Camagru_files/Screen_Shot_2018-10-14_at_13.png" width="100px" height="100px">
+        <h1>Camagru Snap</h1>
+    </div>
+    <div class="top-container" style="position:relative">
+        <video id="video" width="500" height="375">Stream not available</video>
+        <img src="Camagru_files/giphy.gif" alt="" id="sticker">
+        <button id="photo-button" class="btn btn-dark">
+            Take Photo
+        </button>
+        <select id="photo-filter" class="select">
+            <option value="none">Normal</option>
+            <!-- <option value="grayscale(100%)">Grayscale</option> -->
+            <!-- <option value="invert(100%)">Invert</option> -->
+            <!-- <option value="hue-rotate(90deg)">Hue</option> -->
+            <!-- <option value="Blur(2px)">Blur</option> -->
+            <!-- <option value="contrast(200%)">Contrast</option> -->
+            <!-- <option value="drop-shadow(12px 12px 14px gray)">drop-shadow</option> -->
+            <option value="./imgs/tumblr_mioj38CUml1qic5avo1_1280">snapchat</option>
+            <option value="./imgs/Snapchat-Flower-Crown-PNG-Clipart.png">love crown</option>
+            <option value="./imgs/Alien-PNG-Picture.png">Alien</option>
+            <option value="https://media.giphy.com/media/3ohhwyiB8a06gIuIoM/giphy.gif" selected="selected">Alien</option>
+           
+        </select>
+        <button id="clear-button" class="btn btn-light">Clear</button>
+        <button id="save-button" class="btn btn-light">Save Image</button>
+        <canvas id="canvas" width="500" height="375"></canvas>
+    </div>
+    <div class="bottom-container">
+        <div id="photos"></div>
+    </div>
+    <footer>
+        <div class="next">
+            <p><a href="#comments">Share with friends</a></p>
+        </div>
+    </footer>
+
+<script src="Camagru_files/main.js"></script>
+
+</body></html>
