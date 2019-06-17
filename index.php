@@ -4,6 +4,7 @@ session_start();
 include './includes/header_inc.php';
 $username = 'root';
 $password = 'coding01';
+$array = [];
 try{
     $conn = new PDO ("mysql:host=localhost;dbname=camagru",$username,$password);
     $select = "SELECT * FROM images";
@@ -21,7 +22,6 @@ if (isset($_SESSION['email'])){
     echo "YES";
     var_dump($_SESSION);
 }else{
-    
     echo "NO";
 }
 
@@ -73,7 +73,7 @@ if (isset($_SESSION['email'])){
             ?>
               <div class="image">
             <img src="<?= $array[0] ?>" width="50px" height="50px" alt="">
-            <br><a href="#"><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" data-url="liked" width="50px" height=" 50px" onclick="myFunction(this)"></a>
+            <br><a href="#"><img src="https://res.cloudinary.com/djqvinizl/image/upload/v1542466146/heart-shape-icon-.png" data-url="23" width="50px" height=" 50px" onclick="myFunction(this)"></a>
         <div id="like"></div>
         <!-- <form action="" method="post"> -->
         <textarea class="comment" name="comment" id="ucomments" min="10" max="50"></textarea>
@@ -122,17 +122,21 @@ if (isset($_SESSION['email'])){
     <script>
     var xhttp = new XMLHttpRequest();
     function myFunction(d){
-        xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-       var likeBox = document.getElementById("like").innerHTML = xhttp.responseText;
-    }
-};
-        
-        xhttp.open("POST", "likes.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("imgid="+d.getAttribute("data-url"));
-
+        if (localStorage.getItem(d.getAttribute("data-url")) != 'YES')
+        {
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+                var likeBox = document.getElementById("like").innerHTML = xhttp.responseText;
+                localStorage.setItem(d.getAttribute("data-url"), "YES");
+                }
+            };
+            xhttp.open("POST", "likes.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("imgid="+d.getAttribute("data-url"));
+        } else {
+            alert("fuck u!!");
+        }
     }
     
     //comment
